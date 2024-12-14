@@ -6,6 +6,8 @@ public class Account {
   }
 
   public boolean checkNameToEmboss() {
-    return name.length() >= 3 && name.length() <= 19 && !name.isBlank() && name.contains(" ") && !name.startsWith(" ") && !name.endsWith(" ");
+    int countSpaces;
+    countSpaces = name.length() - name.replaceAll(" ", "").length();
+    return name.length() >= 3 && name.length() <= 19 && !name.isBlank() && countSpaces == 1 && !name.startsWith(" ") && !name.endsWith(" ");
   }
 }
